@@ -2,6 +2,7 @@
     <title>reCAPTCHA demo: Explicit render for multiple widgets</title>
     <script type="text/javascript">
       var verifyCallback = function(response) {
+        console.log("RESPONSE: " + response)
         alert(response);
       };
       var widgetId1;
@@ -51,7 +52,7 @@
         async defer>
     </script>
     <script>
-        console.log("v1.0.1");
+        console.log("v1.0.2");
     </script>
   </body>
 </html>
