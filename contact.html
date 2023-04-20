@@ -11,10 +11,12 @@
         // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
         widgetId1 = grecaptcha.render('example1', {
           'sitekey' : '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
-          'theme' : 'light'
+          'theme' : 'light',
+          'callback' : verifyCallback,
         });
         widgetId2 = grecaptcha.render(document.getElementById('example2'), {
-          'sitekey' : '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB'
+          'sitekey' : '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
+          'callback' : verifyCallback,
         });
         grecaptcha.render('example3', {
           'sitekey' : '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
