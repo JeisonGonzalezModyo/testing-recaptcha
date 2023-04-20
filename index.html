@@ -73,12 +73,10 @@
                 <div class="input-group">
                     <input type="text" class="form-control p-4" placeholder="Your Email" style="height: 60px;">
                     <div class="input-group-append">
-                        <button class="btn btn-primary font-weight-bold px-4" type="submit">Sign Up</button>
-
-
-                        <button class="g-recaptcha" data-sitekey="6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"
-                            data-callback='onSubmit' data-action='nameOfAction'>Submit</button>
-
+                        <button class="btn btn-primary font-weight-bold px-4 g-recaptcha" type="submit"
+                        data-sitekey="6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5" 
+                        data-callback='onSubmit' 
+                        data-action='submit'>Sign Up</button>
                     </div>
                 </div>
             </form>
@@ -109,19 +107,11 @@
     <script src="js/main.js"></script>
 
     <!-- Google recaptcha -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         console.log("v1.0.1");
-        function onSubmit(e) {
-            e.preventDefault();
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5', { action: 'submit' }).then(function (token) {
-                    console.log("Add your logic to submit to your backend server here.");
-                    console.log("token: " + token);
-                    console.log("");
-                    // Add your logic to submit to your backend server here.
-                });
-            });
+        function onSubmit(token) {
+            document.getElementById("demo-form").submit();
         }
     </script>
 </body>
