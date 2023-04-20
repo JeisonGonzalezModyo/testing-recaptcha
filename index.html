@@ -522,7 +522,7 @@
     <!-- Google recaptcha -->
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"></script>
     <script>
-        function onClick(e) {
+        function onSubmit(e) {
             e.preventDefault();
             grecaptcha.ready(function () {
                 grecaptcha.execute('6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5', { action: 'submit' }).then(function (token) {
