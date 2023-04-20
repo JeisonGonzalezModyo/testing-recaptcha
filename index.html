@@ -209,12 +209,10 @@
                     <input type="text" class="form-control p-4" placeholder="Your Email" style="height: 60px;">
                     <div class="input-group-append">
                         <button class="btn btn-primary font-weight-bold px-4" type="submit">Sign Up</button>
-                        
 
-    <button class="g-recaptcha" 
-    data-sitekey="6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5" 
-    data-callback='onSubmit' 
-    data-action='submit'>Submit</button>
+
+                        <button class="g-recaptcha" data-sitekey="6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"
+                            data-callback='onSubmit' data-action='submit'>Submit</button>
 
                     </div>
                 </div>
@@ -521,20 +519,21 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <!-- Google recaptcha --><script src="https://www.google.com/recaptcha/api.js?render=6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"></script>
-   <script>
-      function onClick(e) {
-        e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5', {action: 'submit'}).then(function(token) {
-            console.log("Add your logic to submit to your backend server here.");
-            console.log("token: " + token);
-            console.log("");
-              // Add your logic to submit to your backend server here.
-          });
-        });
-      }
-  </script>
+    <!-- Google recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5"></script>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6Lc-O1ojAAAAAJuF-rL3ZlSt00S6dxbs9kdiiVI5', { action: 'submit' }).then(function (token) {
+                    console.log("Add your logic to submit to your backend server here.");
+                    console.log("token: " + token);
+                    console.log("");
+                    // Add your logic to submit to your backend server here.
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
