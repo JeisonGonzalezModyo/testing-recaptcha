@@ -1,24 +1,25 @@
 <html>
-
-<head>
-    <title>reCAPTCHA demo: Simple page</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
     <script>
-        function onSubmit(token) {
-            alert("Add your logic to submit to your backend server here.");
-            console.log("Add your logic to submit to your backend server here.");
-            console.log("token: " + token);
-            console.log("");
-        }
-    </script>
-</head>
+        var onSubmit = function(token) {
+          console.log('success!');
+        };
 
-<body>
-    <div class="g-recaptcha" data-sitekey="6LccbKQlAAAAAK4xSYlYZxyrsPcn5xHH9l7v04G6" data-callback="onSubmit" data-size="invisible">
-    </div>
-    <script>
-        console.log("v1.0.2");
+        var onloadCallback = function() {
+          grecaptcha.render('submit', {
+            'sitekey' : '6LccbKQlAAAAAK4xSYlYZxyrsPcn5xHH9l7v04G6',
+            'callback' : onSubmit
+          });
+        };
     </script>
-</body>
-
+  </head>
+  <body>
+    <form action="?" method="POST">
+      <input id="submit" type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
 </html>
