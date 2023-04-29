@@ -28,34 +28,11 @@
     <link href="css/style.min.css" rel="stylesheet">
 
     <!-- Google recaptcha -->
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+
     <link rel="preconnect" href="https://www.google.com">
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 
-    <script type="text/javascript">
-        var verifyCallback = function (response) {
-            console.log("RESPONSE: " + response);
-        };
-        var widgetId1;
-        var widgetId2;
-        var onloadCallback = function () {
-            // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
-            // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
-            widgetId1 = grecaptcha.render('example1', {
-                'sitekey': '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
-                'theme': 'light',
-                'callback': verifyCallback,
-            });
-            widgetId2 = grecaptcha.render(document.getElementById('example2'), {
-                'sitekey': '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
-                'callback': verifyCallback,
-            });
-            grecaptcha.render('example3', {
-                'sitekey': '6Ld6aqQlAAAAAE01BxrC_W1ooqabV0195DLgOHKB',
-                'callback': verifyCallback,
-                'theme': 'dark'
-            });
-        };
-    </script>
 </head>
 
 <body>
@@ -90,35 +67,11 @@
 
 
     <!-- Offer Start -->
-    <div class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
-        <div class="container py-5">
-            <h1 class="display-3 text-primary mt-3">reCAPTCHA</h1>
-            <h1 class="text-white mb-3">V2 With check</h1>
-            <h4 class="text-white font-weight-normal mb-4 pb-3">show console to review the token result</h4>
-
-            <!-- The g-recaptcha-response string displays in an alert message upon submit. -->
-            <form action="javascript:alert(grecaptcha.getResponse(widgetId1));">
-                <div id="example1"></div>
-                <br>
-                <input type="submit" value="getResponse">
-            </form>
-            <br>
-            <!-- Resets reCAPTCHA widgetId2 upon submit. -->
-            <form action="javascript:grecaptcha.reset(widgetId2);">
-                <div id="example2"></div>
-                <br>
-                <input type="submit" value="reset">
-            </form>
-            <br>
-            <!-- POSTs back to the page's URL upon submit with a g-recaptcha-response POST parameter. -->
-            <form action="?" method="POST">
-                <div id="example3"></div>
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-
-        </div>
-    </div>
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6LeoecMlAAAAANaxA6BPgOQHEHfYWYS-WoaU7mGZ" data-action="LOGIN"></div>
+        <br/>
+        <input type="submit" value="Submit">
+      </form>
     <!-- Offer End -->
 
 
@@ -143,9 +96,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <!-- Google recaptcha -->
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-    </script>
 </body>
 
 </html>
