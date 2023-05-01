@@ -1,134 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>KOPPEE - Coffee Shop HTML Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.min.css" rel="stylesheet">
-
-    <!-- Google recaptcha -->
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
-
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-
-</head>
-
-<body>
-    <!-- Navbar Start -->
-    <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="index.html" class="navbar-brand px-lg-4 m-0">
-                <h1 class="m-0 display-4 text-uppercase text-white">KOPPEE</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Service</a>
-                    <a href="menu.html" class="nav-item nav-link">Menu</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu text-capitalize">
-                            <a href="reservation.html" class="dropdown-item">Reservation</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
-
-
+<html>
+  <head>
+    <title>reCAPTCHA demo: Explicit render for multiple widgets</title>
+        <script type="text/javascript">
+      var verifyCallback = function(response) {
+        alert(response);
+      };
+      var widgetId1;
+      var widgetId2;
+      var onloadCallback = function() {
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        widgetId1 = grecaptcha.enterprise.render('example1', {
+          'sitekey' : '6Le_5NElAAAAABZ8hv4x0ENvYoippTm31oTV34PN',
+          'theme' : 'light'
+        });
+        widgetId2 = grecaptcha.enterprise.render(document.getElementById('example2'), {
+          'sitekey' : '6Le_5NElAAAAABZ8hv4x0ENvYoippTm31oTV34PN',
+        });
+        grecaptcha.enterprise.render('example3', {
+          'sitekey' : '6Le_5NElAAAAABZ8hv4x0ENvYoippTm31oTV34PN',
+          'callback' : verifyCallback,
+          'theme' : 'dark'
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <!-- The g-recaptcha-response string displays in an alert message upon submit. -->
+    <form action="javascript:alert(grecaptcha.enterprise.getResponse(widgetId1));">
+      <div id="example1"></div>
+      <br>
+      <input type="submit" value="getResponse">
+    </form>
     <br>
+    <!-- Resets reCAPTCHA widgetId2 upon submit. -->
+    <form action="javascript:grecaptcha.enterprise.reset(widgetId2);">
+      <div id="example2"></div>
+      <br>
+      <input type="submit" value="reset">
+    </form>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <form id="kc-form-login" action="http://localhost:9900/auth/realms/json-realm/login-actions/authenticate?session_code=N_TT1eDGVoSgbjd_FW7rTpBWbcXhFghLcMeDnS3G6xk&amp;execution=053037e2-6f1a-4c1d-a9a4-b67684fe0427&amp;client_id=account&amp;tab_id=mLJMgZTUX1M" method="post" class="w-100 needs-validation"><input type="hidden" name="g-recaptcha-response"> <span class="form-group"><div data-v-bd5fecba="" class="m-form-group form-group mb-4  m-form-group--error"><label data-v-bd5fecba="" data-test-id="label">
-        Correo
-      </label> <div data-v-bd5fecba="" class="position-relative"><input data-v-bd5fecba="" data-test-id="input" name="username" placeholder="Ej: john@correo.com"> <span data-v-bd5fecba="" class="m-form-group__icon"><i data-v-bd5fecba="" data-test-id="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle" color="#FF2A00"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i></span></div> <span data-v-bd5fecba="" class="m-notification">Ingresa un correo electrónico válido</span></div></span> <span class="form-group"><div data-v-21c6b4c6="" class="m-form-group form-group mb-3"><label data-v-21c6b4c6="" data-test-id="label">
-        Contraseña
-      </label> <div data-v-21c6b4c6="" class="position-relative"><span data-v-21c6b4c6="" class="m-icon-password"><i data-v-21c6b4c6="" data-test-id="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye" color="#252931"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></i></span> <input data-v-21c6b4c6="" data-test-id="input" type="password" name="password" placeholder="Ingresa tu contraseña"></div> <span data-v-21c6b4c6="" class="m-notification"></span></div></span>
-    
-                  PRUEBA DE RECAPTCHA ENTERPRISE V2 <br> 
-                  
-        <div class="g-recaptcha" data-sitekey="6LeoecMlAAAAANaxA6BPgOQHEHfYWYS-WoaU7mGZ" data-action="login"></div>
-                  
-                  <a href="/auth/realms/json-realm/login-actions/reset-credentials?client_id=account&amp;tab_id=mLJMgZTUX1M" class="btn btn-link px-0 mb-4">
-                    ¿Olvidaste tu contraseña?
-                  </a> <!----> <div id="form-buttons" class="my-4 form-buttons d-flex"><button data-v-440b2899="" data-test-id="m-button" type="button" class="m-btn m-btn m-btn--primary" style="width: 100%;"><span data-v-30eb71ae="" data-v-440b2899="" data-test-id="button-content-wrapper" class="d-flex align-items-center h-100 justify-content-center"><!----> <span data-v-30eb71ae="" data-test-id="button-content-text" class="line-height-min">Iniciar sesión</span></span></button> <div class="back-btn w-100 mt-3"><button data-v-440b2899="" data-test-id="m-button" type="button" class="m-btn m-btn m-btn--secondary-alt" style="width: 100%;"><span data-v-30eb71ae="" data-v-440b2899="" data-test-id="button-content-wrapper" class="d-flex align-items-center h-100 justify-content-center"><i data-v-30eb71ae="" data-test-id="icon-wrapper" class="icon order-1 me-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left" color=""><polyline points="15 18 9 12 15 6"></polyline></svg></i> <span data-v-30eb71ae="" data-test-id="button-content-text" class="line-height-min order-2">Volver</span></span></button></div></div> <hr> <div class="mt-5 d-flex align-items-center mb-4 create-acount-container"><span>¿No tienes una cuenta?</span> <a href="/auth/realms/json-realm/login-actions/registration?client_id=account&amp;tab_id=mLJMgZTUX1M" class="btn btn-link px-0">
-                      Crea tu cuenta de usuario
-                    </a></div> <div class="color-gray-70 small d-flex">
-                    Este sitio está protegido por reCAPTCHA y se aplican las
-                    <a href="https://policies.google.com/privacy" target="_blank" class="btn btn-link p-0 small mx-1" style="display: contents;">
-                      Políticas de Privacidad
-                    </a> y
-                    <a href="https://policies.google.com/terms" target="_blank" class="btn btn-link p-0 small mx-1" style="display: contents;">
-                      Condiciones de Servicio de Google
-                    </a>
-                    .
-                  </div></form>
-
-
-    <!-- Back to Top 
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>-->
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-</body>
-
+    <!-- POSTs back to the page's URL upon submit with a g-recaptcha-response POST parameter. -->
+    <form action="?" method="POST">
+      <div id="example3"></div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+     <script src="https://www.google.com/recaptcha/enterprise.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
 </html>
